@@ -118,14 +118,7 @@
   },
   "keywords": [
     "electron",
-    "boilerplate",
-    "react",
-    "redux",
-    "flow",
-    "sass",
-    "webpack",
-    "hot",
-    "reload"
+    "calendar"
   ],
   "homepage": "https://github.com/rishichawda/calendar-app#readme",
   "jest": {
