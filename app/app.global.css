@@ -10,8 +10,12 @@ body {
   margin: 0;
   height: 100vh;
   font-family: Arial, Helvetica, Helvetica Neue, serif;
-  overflow: hidden;
+  overflow: scroll;
   background-color: #162025;
   position: absolute;
   width: 100%;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }

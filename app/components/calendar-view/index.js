@@ -18,7 +18,7 @@ const months = [
   'Dec'
 ];
 
-const weekDays = '<tr><td>Sun</td><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td></tr>';
+const weekDays = '<tr><td>S</td><td>M</td><td>T</td><td>W</td><td>T</td><td>F</td><td>S</td></tr>';
 
 export default class CalendarView extends Component {
   constructor(props) {
@@ -79,6 +79,7 @@ export default class CalendarView extends Component {
           const cellText = document.createTextNode('');
           cell.appendChild(cellText);
           row.appendChild(cell);
+          cell.className = styles['no-anim'];
         } else if (date > this.daysInMonth(month, year)) {
           break;
         } else {
@@ -116,7 +117,8 @@ export default class CalendarView extends Component {
           </div>
           </div>
         </div>
-        <table id="calendar-body">
+        <table>
+          <tbody className={styles.calendar} id="calendar-body" />
         </table>
       </>
     );
