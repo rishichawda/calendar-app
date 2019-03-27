@@ -2,21 +2,8 @@ import React, { Component } from 'react';
 import styles from './index.css';
 import leftIcon from '../../../resources/left.png';
 import rightIcon from '../../../resources/right.png';
-
-const months = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec'
-];
+import { history } from '../../store/configureStore';
+import { months } from '../../constants/data';
 
 const weekDays = '<tr><td>S</td><td>M</td><td>T</td><td>W</td><td>T</td><td>F</td><td>S</td></tr>';
 
@@ -58,6 +45,10 @@ export default class CalendarView extends Component {
 
   daysInMonth = (iMonth, iYear) => 32 - new Date(iYear, iMonth, 32).getDate();
 
+  navigateToDetails = (e) => {
+    history.push(`notes?${e.target.getAttribute('data-cell-info')}`);
+  };
+
   showCalendar = (today, month, year) => {
     const firstDay = new Date(year, month).getDay();
 
@@ -93,6 +84,8 @@ export default class CalendarView extends Component {
             cell.classList.add('bg-info');
           } // color today's date
           cell.appendChild(cellText);
+          cell.setAttribute('data-cell-info', `${date}-${month}-${year}`);
+          cell.addEventListener('click', this.navigateToDetails);
           row.appendChild(cell);
           date += 1;
         }
