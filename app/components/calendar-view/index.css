@@ -56,9 +56,14 @@ td {
 }
 
 td:hover {
-  border: 2px solid sandybrown;
+  border: 2px solid rgb(252, 243, 81, 0.7);
 }
 
 .no-anim:hover {
   border: 2px solid transparent !important;
+}
+
+.today {
+  color: rgb(252, 243, 81);
+  font-weight: bolder;
 }
