@@ -1,0 +1,64 @@
+.calendar {
+  border: 1px solid white;
+  padding: 5px;
+}
+
+.calendar > tr:nth-child(1) {
+  font-weight: bolder;
+}
+
+.calendar > tr:nth-child(1) > td:hover {
+  border: 2px solid transparent !important;
+}
+
+.topNavigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5%;
+  box-sizing: border-box;
+}
+
+.topNavigation > div {
+  display: flex;
+  width: 65%;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  padding: 5%;
+  box-sizing: border-box;
+}
+
+.prev > img,
+.next > img {
+  margin: auto;
+}
+
+.monthAndYear {
+  flex: 3;
+  text-align: center;
+}
+
+td {
+  padding: 4% 0%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: border 0.34s ease-in-out;
+}
+
+td:hover {
+  border: 2px solid sandybrown;
+}
+
+.no-anim:hover {
+  border: 2px solid transparent !important;
+}
