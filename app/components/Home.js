@@ -4,8 +4,6 @@ import styles from './Home.css';
 import Calendar from './calendar-view';
 
 export default class Home extends Component {
-  props: Props;
-
   render() {
     return (
       <div className={styles.container} data-tid="container">

@@ -1,13 +1,17 @@
 import React from 'react';
-import { Switch, Route } from 'react-router';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import routes from './constants/routes';
 import App from './containers/App';
 import HomePage from './containers/HomePage';
+import DetailsPage from './containers/DetailsPage';
 
 export default () => (
   <App>
-    <Switch>
-      <Route path={routes.HOME} component={HomePage} />
-    </Switch>
+    <Router>
+      <div>
+        <Route exact path={routes.HOME} component={HomePage} />
+        <Route path={routes.NOTES} component={DetailsPage} />
+      </div>
+    </Router>
   </App>
 );
