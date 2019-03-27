@@ -62,3 +62,8 @@ td:hover {
 .no-anim:hover {
   border: 2px solid transparent !important;
 }
+
+.today {
+  color: sandybrown;
+  font-weight: bolder;
+}

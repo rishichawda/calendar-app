@@ -81,7 +81,7 @@ export default class CalendarView extends Component {
             year === today.getFullYear() &&
             month === today.getMonth()
           ) {
-            cell.classList.add('bg-info');
+            cell.classList.add(styles.today);
           } // color today's date
           cell.appendChild(cellText);
           cell.setAttribute('data-cell-info', `${date}-${month}-${year}`);
