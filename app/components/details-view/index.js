@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 import styles from './index.css';
 import { connect } from 'react-redux';
+import leftIcon from '../../../resources/left.png';
+import { history } from '../../store/configureStore';
+import { months } from '../../constants/data';
 
 class Details extends Component {
   render() {
-    console.log(this.props.data);
+    const { data: { day, month, year } } = this.props;
     return (
-      <div>
-        Ta-da!!
+      <>
+      <div className={styles.topBar}>
+        <div className={styles.backButton} onClick={history.goBack}>
+          <img src={leftIcon} height={16} width='auto' />
+        </div>
+        <div className={styles.displayDate}>
+          <h2>{`${months[month]} ${day}, ${year}`}</h2>
+        </div>
       </div>
+      </>
     );
   }
 }
