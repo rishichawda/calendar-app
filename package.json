@@ -1,6 +1,6 @@
 {
   "name": "calendar-app",
-  "productName": "Calendar",
+  "productName": "MinimalCal",
   "version": "0.0.1",
   "description": "Calendar App",
   "scripts": {
@@ -56,7 +56,7 @@
   },
   "main": "./app/main.prod.js",
   "build": {
-    "productName": "Calendar",
+    "productName": "MinimalCal",
     "appId": "org.rishi.calendar",
     "files": [
       "app/dist/",

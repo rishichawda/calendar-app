@@ -2,23 +2,11 @@ import React, { Component } from 'react';
 import styles from './index.css';
 import leftIcon from '../../../resources/left.png';
 import rightIcon from '../../../resources/right.png';
+import { history } from '../../store/configureStore';
+import { months } from '../../constants/data';
 
-const months = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec'
-];
-
-const weekDays = '<tr><td>S</td><td>M</td><td>T</td><td>W</td><td>T</td><td>F</td><td>S</td></tr>';
+const weekDays =
+  '<tr><td>S</td><td>M</td><td>T</td><td>W</td><td>T</td><td>F</td><td>S</td></tr>';
 
 export default class CalendarView extends Component {
   constructor(props) {
@@ -58,6 +46,10 @@ export default class CalendarView extends Component {
 
   daysInMonth = (iMonth, iYear) => 32 - new Date(iYear, iMonth, 32).getDate();
 
+  navigateToDetails = e => {
+    history.push(`notes?${e.target.getAttribute('data-cell-info')}`);
+  };
+
   showCalendar = (today, month, year) => {
     const firstDay = new Date(year, month).getDay();
 
@@ -85,14 +77,22 @@ export default class CalendarView extends Component {
         } else {
           const cell = document.createElement('td');
           const cellText = document.createTextNode(date);
+          // eslint-disable-next-line no-loop-func
+          ((cellEle, index) => {
+            setTimeout(() => {
+              cellEle.classList.add(styles.zoomin);
+            }, (50 * index) / 5);
+          })(cell, date);
           if (
             date === today.getDate() &&
             year === today.getFullYear() &&
             month === today.getMonth()
           ) {
-            cell.classList.add('bg-info');
+            cell.classList.add(styles.today);
           } // color today's date
           cell.appendChild(cellText);
+          cell.setAttribute('data-cell-info', `${date}-${month}-${year}`);
+          cell.addEventListener('click', this.navigateToDetails);
           row.appendChild(cell);
           date += 1;
         }
@@ -108,13 +108,15 @@ export default class CalendarView extends Component {
       <>
         <div className={styles.topNavigation}>
           <div>
-          <div className={styles.prev} onClick={this.previous}>
-            <img src={leftIcon} height={16} width='auto' />
-          </div>
-          <div className={styles.monthAndYear}>{`${months[month]} ${year}`}</div>
-          <div className={styles.next} onClick={this.next}>
-            <img src={rightIcon} height={16} width='auto' />
-          </div>
+            <div className={styles.prev} onClick={this.previous}>
+              <img src={leftIcon} height={16} width="auto" />
+            </div>
+            <div className={styles.monthAndYear}>{`${
+              months[month]
+            } ${year}`}</div>
+            <div className={styles.next} onClick={this.next}>
+              <img src={rightIcon} height={16} width="auto" />
+            </div>
           </div>
         </div>
         <table>
