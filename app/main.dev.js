@@ -14,6 +14,9 @@ import { app, BrowserWindow } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
+import packageJSON from '../package.json';
+
+app.setName(packageJSON.productName);
 
 export default class AppUpdater {
   constructor() {
@@ -46,6 +49,7 @@ const installExtensions = async () => {
     extensions.map(name => installer.default(installer[name], forceDownload))
   ).catch(console.log);
 };
+
 
 /**
  * Add event listeners...
