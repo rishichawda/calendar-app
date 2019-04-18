@@ -4,7 +4,8 @@ import leftIcon from '../../../resources/left.png';
 import rightIcon from '../../../resources/right.png';
 import { history } from '../../store/configureStore';
 import { months } from '../../constants/data';
-import { TopNavigationBar, InnerBar } from './components';
+import { TopNavigationBar, InnerBar, NavigationButton } from './components';
+import Icon from '../shared/icon';
 
 const weekDays =
   '<tr><td>S</td><td>M</td><td>T</td><td>W</td><td>T</td><td>F</td><td>S</td></tr>';
@@ -109,14 +110,14 @@ export default class CalendarView extends Component {
       <>
         <TopNavigationBar>
           <InnerBar>
-            <NavigationButton className={styles.prev} onClick={this.previous}>
-              <Icon src={leftIcon} height={16} width="auto" />
+            <NavigationButton onClick={this.previous}>
+              <Icon src={leftIcon} height={16} />
             </NavigationButton>
             <div className={styles.monthAndYear}>{`${
               months[month]
             } ${year}`}</div>
-            <NavigationButton className={styles.next} onClick={this.next}>
-              <Icon src={rightIcon} height={16} width="auto" />
+            <NavigationButton onClick={this.next}>
+              <Icon src={rightIcon} height={16} />
             </NavigationButton>
           </InnerBar>
         </TopNavigationBar>

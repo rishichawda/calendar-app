@@ -8,7 +8,7 @@ body {
   -ms-overflow-style: scrollbar;
   -webkit-app-region: drag;
   margin: 0;
-  height: 100vh;
+  height: 100%;
   font-family: Arial, Helvetica, Helvetica Neue, serif;
   overflow: scroll;
   background-color: #162025;
@@ -18,4 +18,9 @@ body {
   font-family: "Open Sans", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+#root {
+  height: 100%;
 }
