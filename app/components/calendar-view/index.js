@@ -4,6 +4,7 @@ import leftIcon from '../../../resources/left.png';
 import rightIcon from '../../../resources/right.png';
 import { history } from '../../store/configureStore';
 import { months } from '../../constants/data';
+import { TopNavigationBar, InnerBar } from './components';
 
 const weekDays =
   '<tr><td>S</td><td>M</td><td>T</td><td>W</td><td>T</td><td>F</td><td>S</td></tr>';
@@ -106,19 +107,19 @@ export default class CalendarView extends Component {
     const { month, year } = this.state;
     return (
       <>
-        <div className={styles.topNavigation}>
-          <div>
-            <div className={styles.prev} onClick={this.previous}>
-              <img src={leftIcon} height={16} width="auto" />
-            </div>
+        <TopNavigationBar>
+          <InnerBar>
+            <NavigationButton className={styles.prev} onClick={this.previous}>
+              <Icon src={leftIcon} height={16} width="auto" />
+            </NavigationButton>
             <div className={styles.monthAndYear}>{`${
               months[month]
             } ${year}`}</div>
-            <div className={styles.next} onClick={this.next}>
-              <img src={rightIcon} height={16} width="auto" />
-            </div>
-          </div>
-        </div>
+            <NavigationButton className={styles.next} onClick={this.next}>
+              <Icon src={rightIcon} height={16} width="auto" />
+            </NavigationButton>
+          </InnerBar>
+        </TopNavigationBar>
         <table>
           <tbody className={styles.calendar} id="calendar-body" />
         </table>
