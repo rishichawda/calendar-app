@@ -50,7 +50,6 @@ const installExtensions = async () => {
   ).catch(console.log);
 };
 
-
 /**
  * Add event listeners...
  */
@@ -75,7 +74,7 @@ app.on('ready', async () => {
     show: false,
     width: 380,
     height: 470,
-    frame: false,
+    frame: false
   });
 
   mainWindow.setResizable(false);

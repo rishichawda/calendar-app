@@ -23,7 +23,3 @@ flex: 1;
 padding: 5%;
 box-sizing: border-box;
 `;
-
-export const Icon = styled.img`
-margin: auto;
-`;
